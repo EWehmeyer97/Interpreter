@@ -1,0 +1,34 @@
+The Tokenizer class allows a user to look a text document consisting of Core language commands and understand it as a series of tokens recognized in Core. A user of the Tokenizer class is currently able to look at the kind of the top token or to advance forward to see the next token.
+ 
+	The Tokenizer1 implementation of the Tokenizer class utilizes:
+		A String to hold the current line (starting at the first line) of the input text. 
+		An int to point as specific chars within the String and to know when the String needs to be overwritten with a new line. 
+		A String Iterator to hold the remaining lines after the String. 
+		A StringBuilder to hold all of the characters that make up the current front token.
+		A TokenKind to hold the type of the front token.
+		A Tokernizer1 variable that is returned after being created with the create method. 
+	This implementation of the Tokenizer class only processes one token at a time, meaning that computations are being done as needed, not all at the creation time of the Tokenizer. The user at the front end will be unable to tell this however. The bulk of the computations are happening in the findToken method which users are unable to call from the front end as it is a private method in Tokenizer1. This method looks at the first char of a new token and determines how long and of what kind the next Token is as describe in the FSA created by Heym.
+
+The ParseTree class allows for the parsing of a Core Program Tokenizer in order to Print and Execute a Core program. 
+
+	The ParseTree1 implementation of the ParseTree class utilizes:
+		A 2D int array to hold each individual node. 
+		An int to point at specific nodes.
+		An int to point to the first free row in the array. 
+		A String array to hold id names. 
+		An int array to hold id values.
+		A boolean array to check if id values have been set.
+		An int to point to the first free space in array holding id names.
+		A ParseTree1 variable that is returned after being created with the create method.
+
+User Manual:
+	A Tokenizer is a series of Tokens as understood by the Core language created from an input Core Language program.
+	Users of the Tokenizer class currently can create a Tokenizer using the Tokenizer1 implementation with the create method found in Tokenizer1 which requires an Iterator of type String.
+	Upon creating the Tokenizer with the implementation, the user will have access to two methods: getToken and skipToken. getToken returns the TokenKind (an enum listing off the different keywords of the Core Language) of the front token in the Tokenizer. skipToken is a void method which increments the Tokenizer forward to the next token in its sequence.
+	
+	A ParseTree is a series of nodes in a tree shape that contain all information needed to print and execute a Core Program.
+	Users of the ParseTree class currently can create a ParseTree using the ParseTree1 implementation with the create method.
+	Users have access to all methods detailed in ParseTree.java.
+
+Testing and Bugs:
+	Testing has been thoroughly done on the Tokenizer1 and ParseTree1 implementation. The implementation has passed all tests provided by Heym. No known error currently exist in the implementation.
